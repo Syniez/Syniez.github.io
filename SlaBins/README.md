@@ -1,1 +1,0 @@
-# Syniez.github.io
