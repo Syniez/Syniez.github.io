@@ -13,7 +13,28 @@
 </head>
   
 <body>
-<h1>Hello World</h1>
-<h2>It is page for SlaBins.</h2>
+    <div class="container" id="main">
+
+        <!-- Top padding -->
+        <div class="row mt-md-5"></div>
+
+        <div class="row">
+            <h2 class="col text-center">
+                <b>Diffusion-Based Signed Distance Fields for 3D Shape Generation</b>
+                <br><br>
+                <span class="realistic-marker-highlight">CVPR 2023</span>
+
+                <svg xmlns="//www.w3.org/2000/svg" version="1.1" class="svg-filters" style="display:none;">
+                    <defs>
+                        <filter id="marker-shape">
+                            <feTurbulence type="fractalNoise" baseFrequency="0 0.15" numOctaves="1" result="warp" />
+                            <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="30" in="SourceGraphic"
+                                in2="warp" />
+                        </filter>
+                    </defs>
+                </svg>
+            </h2>
+        </div>
 </body>
+  
 </html>
