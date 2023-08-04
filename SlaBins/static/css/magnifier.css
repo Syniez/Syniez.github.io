@@ -32,6 +32,6 @@ figure figcaption {
     display: inline-flex;
     border: 1px solid #d4d4d4;
     /*set the size of the result div:*/
-    width: 240px;
-    height: 240px;
+    width: 80px;
+    height: 80px;
 }
