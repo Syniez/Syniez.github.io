@@ -153,17 +153,14 @@
             <div class="col">
                 <h3><i>Abstract</i></h3>
                 <p class="text-justify">
-                    We propose a 3D shape generation framework (<i>SDF-Diffusion</i> in short) that uses denoising
-                    diffusion models with continuous 3D representation via signed distance fields (SDF).
-                    Unlike most existing methods that depend on discontinuous forms, such as point clouds,
-                    <i>SDF-Diffusion</i> generates high-resolution 3D shapes while alleviating memory issues by
-                    separating the generative process into two-stage: generation and super-resolution.
-                    In the first stage, a diffusion-based generative model generates a low-resolution SDF of 3D shapes.
-                    Using the estimated low-resolution SDF as a condition, patch-based diffusion model performs
-                    super-resolution in the second stage.
-                    Our framework can generate a high-fidelity 3D shape despite the extreme spatial complexity.
-                    On the ShapeNet dataset, our moedel shows competitive performance to the state-of-the-art methods
-                    and shows applicability on the shape completion task without modification.
+                    Although 3D perception for autonomous vehicles has focused on frontal-view information, more than half of fatal accidents occur due to side impacts in practice (\eg T-bone crash).
+                    Motivated by this fact, we investigate the problem of side-view depth estimation, especially for monocular fisheye cameras, which provide wide FoV information.
+                    However, since fisheye cameras head road areas, it observes road areas mostly and results in severe distortion on object areas, such as vehicles or pedestrians.
+                    To alleviate these issues, we propose a new fisheye depth estimation network, SlaBins, that infers an accurate and dense depth map based on a geometric property of road environments; most objects are standing (\ie orthogonal) on the road environments.
+                    Concretely, we introduce a slanted multi-cylindrical image (MCI) representation, which allows us to describe a distance as a radius to a cylindrical layer orthogonal to the ground regardless of the camera viewing direction.
+                    Based on the slanted MCI, we estimate a set of adaptive bins and a per-pixel probability map for depth estimation.
+                    Then by combining it with the estimated slanted angle of viewing direction, we directly infer a dense and accurate depth map for fisheye cameras.
+                    Experiments demonstrate that SlaBins outperforms the state-of-the-art methods in both qualitative and quantitative evaluation on the SynWoodScape and KITTI-360 depth datasets.
                 </p>
             </div>
         </div>
