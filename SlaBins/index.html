@@ -227,28 +227,49 @@
             </div>
         </div>
 
-        <div class="img-zoom-container" align="center">
-            <figure display="inline-block">
-                <div class="img-zoom-lens" style="left: 222px; top: 3px;"></div> == $0
-                <img id="GT" src="./imgs/SlaBins_teaser.png">
-                <figcaption>GT</figcaption>
-            </figure>
-            <figure display="inline-block">
-                <div id="zoomed-slabins" class="img-zoom-result" data-image="./imgs/" style="background-image: url("imgs/SlaBins_teaser.png"); background-size: 960px 714px; background-position: -144px -203.307px;"></div>
-                <figcaption>GT</figcaption>
-            </figure>
-            <figure display="inline-block">
-                <div id="zoomed-slabins" class="img-zoom-result" data-image="./imgs/" style="background-image: url("imgs/SlaBins_teaser.png"); background-size: 960px 714px; background-position: -144px -203.307px;"></div>
-                <figcaption>Ours</figcaption>
-            </figure>
-            <figure display="inline-block">
-                <div id="zoomed-slabins" class="img-zoom-result" data-image="./imgs/" style="background-image: url("imgs/SlaBins_teaser.png"); background-size: 960px 714px; background-position: -144px -203.307px;"></div>
-                <figcaption>AdaBins</figcaption>
-            </figure>
-            <figure display="inline-block">
-                <div id="zoomed-slabins" class="img-zoom-result" data-image="./imgs/" style="background-image: url("imgs/SlaBins_teaser.png"); background-size: 960px 714px; background-position: -144px -203.307px;"></div>
-                <figcaption>BTS</figcaption>
-            </figure>
+    <section>
+      <div class="container"> 
+        <div class="columns is-centered"> 
+          <div class="column is-full-width">
+            <h2 align="center"  class="title is-2"> Qualitative Analysis with Textured Meshes </h2>
+
+            <h3 align="center"> Hover over image to move the zoomed in patch </h3>
+            <h3 align="center">Click on reference image to switch to a
+            different image</h3>
+              
+              <!-- Images -->
+              <div class="img-zoom-container" align="center">
+                <figure display="inline-block">
+                  <img id="reference"
+                       src="include/images/comp/gt/000.png" data-image="include/images/comp/gt/" >
+                  <figcaption>Reference</figcaption>
+                </figure>
+                
+                <figure display="inline-block">
+                  <div id="zoomed-imap" class="img-zoom-result"
+                       data-image="include/images/comp/imap/"></div>
+                  <figcaption><a href="https://edgarsucar.github.io/iMAP/">iMAP<sup>*</sup></a></figcaption>
+                </figure>
+                
+                <figure display="inline-block">
+                  <div id="zoomed-nice" class="img-zoom-result"
+                       data-image="include/images/comp/nice/"></div>
+                  <figcaption><a href="https://pengsongyou.github.io/nice-slam">NICE-SLAM</a></figcaption>
+                </figure>
+                
+                <figure display="inline-block">
+                  <div id="zoomed-eslam" class="img-zoom-result"
+                       data-image="include/images/comp/eslam/"></div>
+                  <figcaption>ESLAM (Ours)</figcaption>
+                </figure>
+
+              </div>
+              <br>
+              <figcaption style="font-size: small">&nbsp &nbsp iMAP<sup>*</sup> is the reimplementation of <a href="https://edgarsucar.github.io/iMAP/">iMAP</a> by <a href="https://pengsongyou.github.io/nice-slam">NICE-SLAM.</a></figcaption>
+          </div>
+        </div>
+      </div>
+    </section>
                 
 
 
