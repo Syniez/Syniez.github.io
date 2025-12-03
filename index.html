@@ -44,19 +44,21 @@
             I received my dual B.S. degree in EIE (Electrical Information Engineering) and Artificial Intelligence from Seoultech, where I was advised by Prof. <a href="https://vcl.seoultech.ac.kr/subList/20000007560">Yeejin Lee</a>.
         </p>
         <p>
-          Recently, I worked with Prof. <a href="https://scholar.google.com/citations?user=SReb2csAAAAJ">Lin Wang</a> at NTU as a visiting PhD student.
+          Recently, I worked with Prof. <a href="https://scholar.google.com/citations?user=SReb2csAAAAJ">Wang Lin</a> at NTU as a visiting PhD student.
         </p>
         <p>
-          I like to collaborate with people on interesting problems :)
+          I am working on 3D scene understanding from various cameras.
         </p>
           <a href="mailto:syniez@unist.ac.kr">Email</a>
           &nbsp;/&nbsp;
-          <!-- <a href="https://scholar.google.com/citations?hl=en&user=ODr5lMgAAAAJ">Google Scholar</a> -->
-          <!-- &nbsp;/&nbsp; -->
+          <a href="https://scholar.google.com/citations?user=GqpW9LYAAAAJ&hl=ko&oi=sra">Google Scholar</a>
+          &nbsp;/&nbsp;
+          <a href="https://www.linkedin.com/in/jongsung-lee-892b4227b/">LinkedIn</a>
+          &nbsp;/&nbsp;
           <a href="https://github.com/Syniez/">Github</a>
           &nbsp;/&nbsp;
-          <!-- <a href="https://drive.google.com/file/d/1UHSqPyoaY6_EuvppeznzEDOzRbN3XkE8/view?usp=sharing">Resume</a> -->
-           <a href="">Resume</a>
+          <a href="https://ko.overleaf.com/read/vkqrzvpxmbsr#f323ab">CV</a>
+          &nbsp;/&nbsp;
         </p>
       </div>
       <div style="display: block">
@@ -107,6 +109,7 @@
             recent: true,
             new: false,
           },
+          
           {
             previewSrc: "assets/SlaBins.png",
             title:
@@ -194,44 +197,125 @@
         }
       </script>
     </section>
+    
     <section>
       <h2>Projects</h2>
-      <p>Under Construction for details!</p>
-    <div class="projects-grid">
-    <figure class="project-card">
-      <a href="projects/proj_cheese.html">
-      <img src="assets/cheese.png" alt="" />
-      <figcaption>
-        <b>Cheese!</b>
-        <p>Generative Editing · 2025</p>
-      </figcaption>
-      </a>
-    </figure>
+      <!-- Paper list will be dynamically generated here -->
+      <ul id="project-list" style="margin-top: 1em" data-show-recent="false"></ul>
+      [ <a href="#" onclick="toggleRecentPapers(event)">Show older projects</a> ]
 
-    <figure class="project-card">
-      <img src="assets/dirobot.png" alt="" />
-      <figcaption>
-        <b>Dental CBCT&IOS Alignment GUI</b>
-        <p>Medical · 3D Geometry · 2025</p>
-      </figcaption>
-    </figure>
+      <!-- Generate paper list. -->
+      <script>
+        const projects = [
+          {
+            previewSrc: "assets/HUSH.png",
+            title:
+              "HUSH: Holistic Panoramic 3D Scene Understanding using Spherical Harmonics",
+            authors: [
+              "Jongsung Lee",
+              "Harin Park",
+              "Byeong-Uk Lee",
+              "Kyungdon Joo",
+            ],
+            conference: "IEEE/CVF Computer Vision and Pattern Recognition (CVPR) 2025",
+            links: [
+              { text: "Website", url: "https://vision3d-lab.github.io/hush/" },
+              { text: "Paper", url: "https://openaccess.thecvf.com/content/CVPR2025/papers/Lee_HUSH_Holistic_Panoramic_3D_Scene_Understanding_using_Spherical_Harmonics_CVPR_2025_paper.pdf" },
+              // { text: "Code", url: "" },
+            ],
+            summary:
+              "3D scene understanding using SH basis based queries",
+            highlighted: false,
+            recent: true,
+            new: false,
+          },
+          
+          {
+            previewSrc: "assets/SlaBins.png",
+            title:
+              "SlaBins: Fisheye Depth Estimation using Slanted Bins on Road Environments",
+            authors: [
+              "Jongsung Lee",
+              "Gyeongsu Cho*",
+              "Jeongin Park*",
+              "Kyongjun Kim*",
+              "Seongoh Lee*",
+              "Jung-Hee Kim",
+              "Seong-Gyun Jeong*",
+              "Kyungdon Joo†"
+            ],
+            conference: "IEEE/CVF International Conference on Computer Vision (ICCV) 2023",
+            links: [
+              { text: "Website", url: "https://syniez.github.io/SlaBins/" },
+              { text: "Paper", url: "https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_SlaBins_Fisheye_Depth_Estimation_using_Slanted_Bins_on_Road_Environments_ICCV_2023_paper.pdf" },
+            ],
+            summary:
+            "New bin-based representation for slanted cameras on driving scenario",
+            highlighted: false,
+            recent: true,
+            new: false,
+          }
+        ];
+        function generateProjectList() {
+          const projectList = document.getElementById("project-list");
+          projects.forEach((projectt) => {
+            const li = document.createElement("li");
+            if (project.highlighted) {
+              li.classList.add("project-highlighted");
+            }
+            if (project.recent) {
+              li.classList.add("project-recent");
+            }
+            li.classList.add("project");
+            li.innerHTML = `
+              ${
+                project.previewSrc.endsWith(".mp4")
+                  ? `<video class="project-visual" src="${project.previewSrc}" loop muted autoplay playsinline></video>`
+                  : `<img class="project-visual" src="${project.previewSrc}" alt="${project.title}">`
+              }
+              <div class="project-textual">
+                <h3>
+                  ${project.title}
+                  ${project.new ? '<img src="./assets/new_animated.gif" alt="Blinking icon that says \'new\'." />' : ""}
+                </h3>
+                <div style="height: 0.1em"></div>
+                ${project.authors
+                  .map((author) => {
+                    const names = author.split(" ");
+                    const firstName = names.slice(0, -1).join("&nbsp;");
+                    const lastName = names[names.length - 1];
+                    const formattedName = `${firstName}&nbsp;${lastName}`;
+                    return author.startsWith("Jongsung Lee")
+                      ? `<strong>${formattedName}</strong>`
+                      : formattedName;
+                  })
+                  .join(", ")}.
+                <div style="height: 0.375em"></div>
+                <span style="font-weight: 450">${project.conference}</span>
+                <div style="height: 0.375em"></div>
+                ${project.links
+                  .map((link) => `<a href="${link.url}">${link.text}</a>`)
+                  .join(" / ")}
+                <div style="height: 0.375em"></div>
+                <em style="opacity: 0.625">${project.summary}</em>
+              </div>
+            `;
+            projectList.appendChild(li);
+          });
+        }
 
-    <figure class="project-card">
-      <img src="assets/uav.png" alt="" />
-      <figcaption>
-        <b>UAV for Search and Rescue</b>
-        <p>Small Object Detection · 2023</p>
-      </figcaption>
-    </figure>
+        document.addEventListener("DOMContentLoaded", generateProjectList);
 
-        <figure class="project-card">
-      <img src="assets/psad.png" alt="" />
-      <figcaption>
-        <b>Photometric Stereo for Anomaly Detection</b>
-        <p>Anomaly Detection · 2022</p>
-      </figcaption>
-    </figure>
-    </div>
+        function toggleRecentPapers(event) {
+          event.preventDefault();
+          const projectList = document.getElementById("project-list");
+          const showRecent = projectList.dataset.showRecent === "true";
+          projectList.dataset.showRecent = (!showRecent).toString();
+          event.target.textContent = showRecent
+            ? "Show older projects"
+            : "Hide projects";
+        }
+      </script>
     </section>
     
 
