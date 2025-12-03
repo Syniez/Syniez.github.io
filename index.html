@@ -211,17 +211,7 @@
             previewSrc: "assets/Fisheye_multi.png",
             title:
               "Fisheye multi-task learning",
-            authors: [
-              "Jongsung Lee",
-              "Harin Park",
-              "Byeong-Uk Lee",
-              "Kyungdon Joo",
-            ],
             conference: "IEEE/CVF Computer Vision and Pattern Recognition (CVPR) 2025",
-            links: [
-              { text: "Website", url: "https://syniez.github.io/SlaBins/" },
-              { text: "Paper", url: "https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_SlaBins_Fisheye_Depth_Estimation_using_Slanted_Bins_on_Road_Environments_ICCV_2023_paper.pdf" },
-            ],
             summary:
               "3D scene understanding using SH basis based queries",
             highlighted: false,
@@ -233,21 +223,7 @@
             previewSrc: "assets/SlaBins.png",
             title:
               "SlaBins: Fisheye Depth Estimation using Slanted Bins on Road Environments",
-            authors: [
-              "Jongsung Lee",
-              "Gyeongsu Cho*",
-              "Jeongin Park*",
-              "Kyongjun Kim*",
-              "Seongoh Lee*",
-              "Jung-Hee Kim",
-              "Seong-Gyun Jeong*",
-              "Kyungdon Joo†"
-            ],
             conference: "IEEE/CVF International Conference on Computer Vision (ICCV) 2023",
-            links: [
-              { text: "Website", url: "https://syniez.github.io/SlaBins/" },
-              { text: "Paper", url: "https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_SlaBins_Fisheye_Depth_Estimation_using_Slanted_Bins_on_Road_Environments_ICCV_2023_paper.pdf" },
-            ],
             summary:
             "New bin-based representation for slanted cameras on driving scenario",
             highlighted: false,
@@ -278,23 +254,7 @@
                   ${project.new ? '<img src="./assets/new_animated.gif" alt="Blinking icon that says \'new\'." />' : ""}
                 </h3>
                 <div style="height: 0.1em"></div>
-                ${project.authors
-                  .map((author) => {
-                    const names = author.split(" ");
-                    const firstName = names.slice(0, -1).join("&nbsp;");
-                    const lastName = names[names.length - 1];
-                    const formattedName = `${firstName}&nbsp;${lastName}`;
-                    return author.startsWith("Jongsung Lee")
-                      ? `<strong>${formattedName}</strong>`
-                      : formattedName;
-                  })
-                  .join(", ")}.
-                <div style="height: 0.375em"></div>
                 <span style="font-weight: 450">${project.conference}</span>
-                <div style="height: 0.375em"></div>
-                ${project.links
-                  .map((link) => `<a href="${link.url}">${link.text}</a>`)
-                  .join(" / ")}
                 <div style="height: 0.375em"></div>
                 <em style="opacity: 0.625">${project.summary}</em>
               </div>
