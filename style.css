@@ -260,14 +260,19 @@ p {
 .misc-container {
   display: flex;
   gap: 2em;
-  justify-content: space-between;  /* 균등 배치 */
+  justify-content: space-between;
   align-items: flex-start;
-  flex-wrap: wrap;  /* 화면이 좁으면 자동 줄바꿈 */
+  flex-wrap: nowrap;   /* 가로로 강제 배치 */
+}
+
+.misc-item {
+  text-align: center;
+  width: 15em;        /* 한 칸의 너비 고정 */
 }
 
 .misc-item img {
-  width: 13em;
-  aspect-ratio: 1.5;
+  width: 100%;        /* 가로 크기 일정하게 */
+  height: auto;       /* 비율 유지 */
   object-fit: cover;
   border-radius: 5%;
 }
