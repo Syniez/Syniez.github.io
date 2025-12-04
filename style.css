@@ -276,8 +276,6 @@ p {
     
     /* ★ 기준 이미지(w_3DVR)의 비율로 통일 */
     aspect-ratio: 3 / 2;     /* ← 필요하면 여기서 변경하면 됨 */
-
-    height: auto;
     object-fit: cover;       /* 잘 맞추고 넘치는 부분 crop */
     object-position: top;    /* ★ 위쪽 기준으로 crop */
 
