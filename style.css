@@ -274,9 +274,9 @@ p {
 .misc-item img {
     width: 100%;             /* column에 맞춰 자동 조정 */
 
-    aspect-ratio: 4 / 3;     /* ← 필요하면 여기서 변경하면 됨 */
+    aspect-ratio: 5 / 4;     /* ← 필요하면 여기서 변경하면 됨 */
     object-fit: cover;       /* 잘 맞추고 넘치는 부분 crop */
-    object-position: botttom;    /* ★ 위쪽 crop */
+    object-position: bottom;    /* ★ 위쪽 crop */
 
     border-radius: 14px;
 }
