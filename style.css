@@ -275,7 +275,7 @@ p {
     width: 100%;             /* column에 맞춰 자동 조정 */
     
     /* ★ 기준 이미지(w_3DVR)의 비율로 통일 */
-    aspect-ratio: 3 / 2;     /* ← 필요하면 여기서 변경하면 됨 */
+    aspect-ratio: 2 / 3;     /* ← 필요하면 여기서 변경하면 됨 */
 
     height: auto;
     object-fit: cover;       /* 잘 맞추고 넘치는 부분 crop */
