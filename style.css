@@ -256,3 +256,18 @@ p {
   bottom: 0;
   width: 100%;
 }
+
+.misc-container {
+  display: flex;
+  gap: 2em;
+  justify-content: space-between;  /* 균등 배치 */
+  align-items: flex-start;
+  flex-wrap: wrap;  /* 화면이 좁으면 자동 줄바꿈 */
+}
+
+.misc-item img {
+  width: 13em;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+  border-radius: 5%;
+}
