@@ -186,6 +186,7 @@ section {
   justify-content: center;
   align-items: center;
   z-index: 9999;
+  position: fixed;
 }
 
 .img-modal-overlay.active {
@@ -200,11 +201,12 @@ section {
 }
 
 .img-modal-close {
-  position: fixed;
-  top: 25px;
-  right: 40px;
-  font-size: 40px;
+  position: absolute;
+  top: 10%;
+  right: 10%;
+  transform: translate(50%, -50%);
+  font-size: 32px;
   color: white;
   cursor: pointer;
-  user-select: none;
+  z-index: 10000;
 }
