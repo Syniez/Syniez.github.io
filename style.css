@@ -83,7 +83,7 @@ section {
 .paper-visual {
   width: 13em;
   height: 9.5em;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 0.2em;
 }
 
@@ -126,7 +126,7 @@ section {
 .project-visual {
   width: 13em;
   height: 9.5em;
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 0.2em;
 }
 
