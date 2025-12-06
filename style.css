@@ -135,12 +135,15 @@ section {
 }
 
 /* Show/hide older projects */
-.project-list[data-show-recent="false"] .project {
+#project-list[data-show-recent="true"] .project:not(.project-recent) {
   display: none;
 }
-.project-list[data-show-recent="true"] .project {
+
+/* older projects 보이도록 토글된 상태 */
+#project-list[data-show-recent="false"] .project {
   display: flex;
 }
+
 
 /* Misc (Memories) Section */
 .misc-container {
