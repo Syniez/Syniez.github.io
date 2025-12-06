@@ -26,7 +26,38 @@
     />
     <link href="style.css" rel="stylesheet" type="text/css" />
 
+    <!-- Popup modal style -->
+    <style>
+      .img-modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.75);
+        backdrop-filter: blur(2px);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      }
+      .img-modal-overlay.active {
+        display: flex;
+      }
+      .img-modal-content {
+        max-width: 90vw;
+        max-height: 90vh;
+        border-radius: 6px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.6);
+      }
+      .img-modal-close {
+        position: fixed;
+        top: 25px;
+        right: 40px;
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+      }
+    </style>
   </head>
+  
   <body>
     <div style="height: 4em"></div>
     <section
@@ -74,136 +105,13 @@
         />
       </div>
     </section>
-    <section>
-      <h2>Research</h2>
-
-      <p>* indicates co-first authors and &dagger; indicates corresponding authors</p>
-
-      <!-- Paper list will be dynamically generated here -->
-      <ul id="paper-list" style="margin-top: 1em" data-show-recent="false"></ul>
-      [ <a href="#" onclick="toggleRecentPapers(event)">Show older papers</a> ]
-
-      <!-- Generate paper list. -->
-      <script>
-        const papers = [
-          {
-            previewSrc: "assets/HUSH.png",
-            title:
-              "HUSH: Holistic Panoramic 3D Scene Understanding using Spherical Harmonics",
-            authors: [
-              "Jongsung Lee",
-              "Harin Park",
-              "Byeong-Uk Lee",
-              "Kyungdon Joo",
-            ],
-            conference: "IEEE/CVF Computer Vision and Pattern Recognition (CVPR) 2025",
-            links: [
-              { text: "Website", url: "https://vision3d-lab.github.io/hush/" },
-              { text: "Paper", url: "https://openaccess.thecvf.com/content/CVPR2025/papers/Lee_HUSH_Holistic_Panoramic_3D_Scene_Understanding_using_Spherical_Harmonics_CVPR_2025_paper.pdf" },
-              // { text: "Code", url: "" },
-            ],
-            summary:
-              "3D scene understanding using SH basis based queries",
-            highlighted: false,
-            recent: true,
-            new: false,
-          },
-          
-          {
-            previewSrc: "assets/SlaBins.png",
-            title:
-              "SlaBins: Fisheye Depth Estimation using Slanted Bins on Road Environments",
-            authors: [
-              "Jongsung Lee",
-              "Gyeongsu Cho*",
-              "Jeongin Park*",
-              "Kyongjun Kim*",
-              "Seongoh Lee*",
-              "Jung-Hee Kim",
-              "Seong-Gyun Jeong*",
-              "Kyungdon Joo†"
-            ],
-            conference: "IEEE/CVF International Conference on Computer Vision (ICCV) 2023",
-            links: [
-              { text: "Website", url: "https://syniez.github.io/SlaBins/" },
-              { text: "Paper", url: "https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_SlaBins_Fisheye_Depth_Estimation_using_Slanted_Bins_on_Road_Environments_ICCV_2023_paper.pdf" },
-            ],
-            summary:
-            "New bin-based representation for slanted cameras on driving scenario",
-            highlighted: false,
-            recent: true,
-            new: false,
-          }
-        ];
-        function generatePaperList() {
-          const paperList = document.getElementById("paper-list");
-          papers.forEach((paper) => {
-            const li = document.createElement("li");
-            if (paper.highlighted) {
-              li.classList.add("paper-highlighted");
-            }
-            if (paper.recent) {
-              li.classList.add("paper-recent");
-            }
-            li.classList.add("paper");
-            li.innerHTML = `
-              ${
-                paper.previewSrc.endsWith(".mp4")
-                  ? `<video class="paper-visual" src="${paper.previewSrc}" loop muted autoplay playsinline></video>`
-                  : `<img class="paper-visual" src="${paper.previewSrc}" alt="${paper.title}">`
-              }
-              <div class="paper-textual">
-                <h3>
-                  ${paper.title}
-                  ${paper.new ? '<img src="./assets/new_animated.gif" alt="Blinking icon that says \'new\'." />' : ""}
-                </h3>
-                <div style="height: 0.1em"></div>
-                ${paper.authors
-                  .map((author) => {
-                    const names = author.split(" ");
-                    const firstName = names.slice(0, -1).join("&nbsp;");
-                    const lastName = names[names.length - 1];
-                    const formattedName = `${firstName}&nbsp;${lastName}`;
-                    return author.startsWith("Jongsung Lee")
-                      ? `<strong>${formattedName}</strong>`
-                      : formattedName;
-                  })
-                  .join(", ")}.
-                <div style="height: 0.375em"></div>
-                <span style="font-weight: 450">${paper.conference}</span>
-                <div style="height: 0.375em"></div>
-                ${paper.links
-                  .map((link) => `<a href="${link.url}">${link.text}</a>`)
-                  .join(" / ")}
-                <div style="height: 0.375em"></div>
-                <em style="opacity: 0.625">${paper.summary}</em>
-              </div>
-            `;
-            paperList.appendChild(li);
-          });
-        }
-
-        document.addEventListener("DOMContentLoaded", generatePaperList);
-
-        function toggleRecentPapers(event) {
-          event.preventDefault();
-          const paperList = document.getElementById("paper-list");
-          const showRecent = paperList.dataset.showRecent === "true";
-          paperList.dataset.showRecent = (!showRecent).toString();
-          event.target.textContent = showRecent
-            ? "Show older papers"
-            : "Hide papers";
-        }
-      </script>
-    </section>
     
     <section>
       <h2>Projects</h2>
-      <!-- Paper list will be dynamically generated here -->
-      <ul id="project-list" style="margin-top: 1em" data-show-recent="false"></ul>
+
+      <ul id="project-list" style="margin-top:1em" data-show-recent="false"></ul>
       [ <a href="#" onclick="toggleRecentProjects(event)">Show older projects</a> ]
 
-      <!-- Generate Project list. -->
       <script>
         const projects = [
           {
@@ -211,126 +119,99 @@
             title: "Fisheye multi-task learning",
             summary: "Fisheye multi-task learning for autonomous driving",
             Institute: "Funded by 42dot (2023 - 2024)",
-            highlighted: false,
-            recent: true,
-            new: false,
+            recent: true
           },
-          
           {
             previewSrc: "assets/Projects/Stereo_panorama.png",
             title: "Stereo panorama image depth estimation",
             summary: "Stereo depth estimation for indoor 3D reconstruction",
             Institute: "Funded by RIST (2022 - 2032)",
-            highlighted: false,
-            recent: true,
-            new: false,
+            recent: true
           },
-
           {
             previewSrc: "assets/Projects/Fisheye_depth.png",
             title: "Fisheye monocular depth estimation",
             summary: "Depth estimation using Multi-Cylinder Image (MCI) representation",
             Institute: "Funded by 42dot (2022 - 2023)",
-            highlighted: false,
-            recent: true,
-            new: false,
+            recent: true
           },
-          
-          {
-            previewSrc: "assets/8K_tracking.png",
-            title: "High-resolution object tracking",
-            summary: "Generating 2D boxes at each onjects on the 8K video",
-            Institute: "Funded by IITP (2021 - 2022)",
-            highlighted: false,
-            recent: false,
-            new: false,
-          },
-          
-          {
-            previewSrc: "assets/Stereo_panorama_video.png",
-            title: "Stereo panorama video depth estimation",
-            summary: "Stereo depth estimation for depth image based rendering",
-            Institute: "Funded by IITP (2020 - 2022)",
-            highlighted: false,
-            recent: false,
-            new: false,
-          }
         ];
+
         function generateProjectList() {
-          const projectList = document.getElementById("project-list");
-          projects.forEach((project) => {
+          const list = document.getElementById("project-list");
+          projects.forEach(p => {
             const li = document.createElement("li");
-            if (project.highlighted) {
-              li.classList.add("project-highlighted");
-            }
-            if (project.recent) {
-              li.classList.add("project-recent");
-            }
             li.classList.add("project");
+            if (p.recent) li.classList.add("project-recent");
+
             li.innerHTML = `
-              ${
-                project.previewSrc.endsWith(".mp4")
-                  ? `<video class="project-visual" src="${project.previewSrc}" loop muted autoplay playsinline></video>`
-                  : `<img class="project-visual" src="${project.previewSrc}" alt="${project.title}">`
-              }
+              <img class="project-visual popup-img" src="${p.previewSrc}" alt="${p.title}">
               <div class="project-textual">
-                <h3>
-                  ${project.title}
-                  ${project.new ? '<img src="./assets/new_animated.gif" alt="Blinking icon that says \'new\'." />' : ""}
-                </h3>
-                <div style="height: 0.1em"></div>
-                <span style="opacity: 0.7">${project.summary}</span>
-                <div style="height: 0.375em"></div>
-                <em style="opacity: 0.4">${project.Institute}</em>
+                <h3>${p.title}</h3>
+                <span style="opacity:0.7">${p.summary}</span><br>
+                <em style="opacity:0.4">${p.Institute}</em>
               </div>
             `;
-            projectList.appendChild(li);
+            list.appendChild(li);
           });
         }
-
         document.addEventListener("DOMContentLoaded", generateProjectList);
-
-        function toggleRecentProjects(event) {
-          event.preventDefault();
-          const projectList = document.getElementById("project-list");
-          const showRecent = projectList.dataset.showRecent === "true";
-          projectList.dataset.showRecent = (!showRecent).toString();
-          event.target.textContent = showRecent
-            ? "Show older projects"
-            : "Hide projects";
+        function toggleRecentProjects(e) {
+          e.preventDefault();
+          const list = document.getElementById("project-list");
+          const cur = list.dataset.showRecent === "true";
+          list.dataset.showRecent = (!cur).toString();
+          e.target.textContent = cur ? "Show older projects" : "Hide projects";
         }
       </script>
     </section>
 
+    <!-- ========== Memories section ========== -->
     <section>
       <h2>Memories</h2>
 
       <div class="misc-container">
         <div class="misc-item">
-          <img src="./assets/Labs/w_VCL.jpg" alt="">
+          <img class="popup-img" src="./assets/Labs/w_VCL.jpg" alt="">
           <p>Visual Computing Lab</p>
         </div>
 
         <div class="misc-item">
-          <img src="./assets/Labs/w_3DVR.jpg" alt="">
+          <img class="popup-img" src="./assets/Labs/w_3DVR.jpg" alt="">
           <p>3D Vision & Robotics Lab</p>
         </div>
 
         <div class="misc-item">
-          <img src="./assets/Labs/w_EmPACT.jpg" alt="">
+          <img class="popup-img" src="./assets/Labs/w_EmPACT.jpg" alt="">
           <p>EmPACT Lab</p>
         </div>
       </div>
-</section>
-    
-
-    <div style="height: 1em"></div>
-    <section>
-      <em style="color: #777">
-        Website design borrows from
-        <a href="https://chungmin99.github.io/">Chung Min Kim</a>, <a href="https://seung0h.github.io/">Seungoh Han</a>
-      </em>
     </section>
-    <div style="height: 2em"></div>
+
+    <!-- ========== Modal Popup for images ========== -->
+    <div id="img-modal" class="img-modal-overlay">
+      <span class="img-modal-close">&times;</span>
+      <img id="img-modal-content" class="img-modal-content" src="">
+    </div>
+
+    <script>
+      const modal = document.getElementById("img-modal");
+      const modalImg = document.getElementById("img-modal-content");
+      const closeBtn = document.querySelector(".img-modal-close");
+
+      document.addEventListener("click", function(e) {
+        if (e.target.classList.contains("popup-img")) {
+          modalImg.src = e.target.src;
+          modal.classList.add("active");
+        }
+      });
+
+      closeBtn.onclick = () => modal.classList.remove("active");
+      modal.onclick = (e) => {
+        if (e.target === modal) modal.classList.remove("active");
+      };
+    </script>
+
+    <div style="height:2em"></div>
   </body>
 </html>
