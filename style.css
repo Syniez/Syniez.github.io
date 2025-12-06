@@ -97,10 +97,11 @@ section {
 }
 
 /* Show/hide older papers */
-.paper-list[data-show-recent="false"] .paper {
+#paper-list[data-show-recent="true"] .paper:not(.paper-recent) {
   display: none;
 }
-.paper-list[data-show-recent="true"] .paper {
+
+#paper-list[data-show-recent="false"] .project {
   display: flex;
 }
 
@@ -139,7 +140,6 @@ section {
   display: none;
 }
 
-/* older projects 보이도록 토글된 상태 */
 #project-list[data-show-recent="false"] .project {
   display: flex;
 }
