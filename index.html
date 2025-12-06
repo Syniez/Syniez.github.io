@@ -3,84 +3,58 @@
   <head>
     <title>Jongsung Lee</title>
 
-    <!-- Usual metadata. -->
     <meta charset="UTF-8" />
     <link href="./assets/avocado.png" rel="shortcut icon" type="image/x-icon" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, minimum-scale=1"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
-    <!-- Webfont. -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
 
-    <!-- Styles. -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css"
-      rel="stylesheet"
-    />
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <!-- Normalize + Styles -->
+    <link href="https://cdn.jsdelivr.net/npm/modern-normalize@3.0.1/modern-normalize.min.css" rel="stylesheet" />
+    <link href="style.css" rel="stylesheet" />
   </head>
-  
+
   <body>
-    <div style="height: 4em"></div>
-    <section
-      style="
-        display: flex;
-        align-items: start;
-        gap: 2em 1.5em;
-        flex-wrap: wrap-reverse;
-      "
-    >
-      <div style="flex-grow: 1; flex-basis: 20em">
+    <div class="top-spacing"></div>
+
+    <!-- ========== Profile Section ========== -->
+    <section class="profile-section">
+      <div class="profile-text">
         <h1>Jongsung Lee</h1>
         <p>
         	I'm a second-year PhD student in <a href="https://unist.info/">3D Vision & Robotics Lab</a> at UNIST under Prof. <a href="https://scholar.google.co.kr/citations?user=hNxIPzMAAAAJ">Kyungdon Joo</a>.
             I received my dual B.S. degree in EIE (Electrical Information Engineering) and Artificial Intelligence from Seoultech, where I was advised by Prof. <a href="https://vcl.seoultech.ac.kr/subList/20000007560">Yeejin Lee</a>.
         </p>
+
         <p>
           Recently, I worked with Prof. <a href="https://scholar.google.com/citations?user=SReb2csAAAAJ">Wang Lin</a> at NTU as a visiting PhD student.
         </p>
+        <p>I am working on 3D scene understanding from various cameras.</p>
+
         <p>
-          I am working on 3D scene understanding from various cameras.
-        </p>
-          <a href="mailto:syniez@unist.ac.kr">Email</a>
-          &nbsp;/&nbsp;
-          <a href="https://scholar.google.com/citations?user=GqpW9LYAAAAJ&hl=ko&oi=sra">Google Scholar</a>
-          &nbsp;/&nbsp;
-          <a href="https://www.linkedin.com/in/jongsung-lee-892b4227b/">LinkedIn</a>
-          &nbsp;/&nbsp;
-          <a href="https://github.com/Syniez/">Github</a>
-          &nbsp;/&nbsp;
+          <a href="mailto:syniez@unist.ac.kr">Email</a> /
+          <a href="https://scholar.google.com/citations?user=GqpW9LYAAAAJ">Google Scholar</a> /
+          <a href="https://www.linkedin.com/in/jongsung-lee-892b4227b/">LinkedIn</a> /
+          <a href="https://github.com/Syniez">Github</a> /
           <a href="https://ko.overleaf.com/read/vkqrzvpxmbsr#f323ab">CV</a>
         </p>
       </div>
-      <div style="display: block">
-        <img
-          src="./assets/Jongsung.jpg"
-          alt="A photo of the author"
-          style="
-            width: 12em;
-            height: auto;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 5%;
-          "
-        />
+
+      <div class="profile-photo-box">
+        <img src="./assets/Jongsung.jpg" alt="A photo of the author" class="profile-photo" />
       </div>
     </section>
 
+    <!-- ========== Research Section ========== -->
     <section>
       <h2>Research</h2>
 
       <p>* indicates equal contribution and &dagger; indicates corresponding authors</p>
 
-      <ul id="paper-list" style="margin-top:1em" data-show-recent="false"></ul>
+      <ul id="paper-list" class="paper-list" data-show-recent="false"></ul>
       [ <a href="#" onclick="toggleRecentPapers(event)">Show older papers</a> ]
 
       <script>
@@ -89,15 +63,13 @@
             previewSrc: "assets/HUSH.png",
             title: "HUSH: Holistic Panoramic 3D Scene Understanding using Spherical Harmonics",
             authors: ["Jongsung Lee","Harin Park","Byeong-Uk Lee","Kyungdon Joo"],
-            conference: "IEEE/CVF Computer Vision and Pattern Recognition (CVPR) 2025",
+            conference: "CVPR 2025",
             links: [
-              { text:"Website", url:"https://vision3d-lab.github.io/hush/" },
-              { text:"Paper", url:"https://openaccess.thecvf.com/content/CVPR2025/papers/Lee_HUSH_Holistic_Panoramic_3D_Scene_Understanding_using_Spherical_Harmonics_CVPR_2025_paper.pdf" }
+              { text: "Website", url:"https://vision3d-lab.github.io/hush/" },
+              { text:"Paper", url:"https://openaccess.thecvf.com/content/CVPR2025/papers/Lee_HUSH..." }
             ],
             summary:"3D scene understanding using SH basis based queries",
-            highlighted:false,
             recent:true,
-            new:false,
           },
           {
             previewSrc: "assets/SlaBins.png",
@@ -112,15 +84,13 @@
               "Seong-Gyun Jeong*",
               "Kyungdon Joo†"
             ],
-            conference:"IEEE/CVF International Conference on Computer Vision (ICCV) 2023",
+            conference:"ICCV 2023",
             links:[
               { text:"Website", url:"https://syniez.github.io/SlaBins/" },
-              { text:"Paper", url:"https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_SlaBins_Fisheye_Depth_Estimation_using_Slanted_Bins_on_Road_Environments_ICCV_2023_paper.pdf" }
+              { text:"Paper", url:"https://openaccess.thecvf.com/content/ICCV2023/papers/Lee..." }
             ],
             summary:"New bin-based representation for slanted cameras on driving scenario",
-            highlighted:false,
             recent:true,
-            new:false,
           }
         ];
 
@@ -129,7 +99,6 @@
           papers.forEach(paper => {
             const li = document.createElement("li");
             li.classList.add("paper");
-            if (paper.highlighted) li.classList.add("paper-highlighted");
             if (paper.recent) li.classList.add("paper-recent");
 
             li.innerHTML = `
@@ -137,15 +106,16 @@
               <div class="paper-textual">
                 <h3>${paper.title}</h3>
                 ${paper.authors.join(", ")}.<br>
-                <span style="font-weight:450">${paper.conference}</span><br>
+                <span class="paper-conf">${paper.conference}</span><br>
                 ${paper.links.map(l => `<a href="${l.url}">${l.text}</a>`).join(" / ")}
-                <div><em style="opacity:0.625">${paper.summary}</em></div>
+                <div><em class="paper-summary">${paper.summary}</em></div>
               </div>
             `;
             list.appendChild(li);
           });
         }
         document.addEventListener("DOMContentLoaded", generatePaperList);
+
         function toggleRecentPapers(e) {
           e.preventDefault();
           const list = document.getElementById("paper-list");
@@ -155,11 +125,12 @@
         }
       </script>
     </section>
-    
+
+    <!-- ========== Projects Section ========== -->
     <section>
       <h2>Projects</h2>
 
-      <ul id="project-list" style="margin-top:1em" data-show-recent="false"></ul>
+      <ul id="project-list" class="project-list" data-show-recent="false"></ul>
       [ <a href="#" onclick="toggleRecentProjects(event)">Show older projects</a> ]
 
       <script>
@@ -198,14 +169,15 @@
               <img class="project-visual popup-img" src="${p.previewSrc}" alt="${p.title}">
               <div class="project-textual">
                 <h3>${p.title}</h3>
-                <span style="opacity:0.7">${p.summary}</span><br>
-                <em style="opacity:0.4">${p.Institute}</em>
+                <span>${p.summary}</span><br>
+                <em>${p.Institute}</em>
               </div>
             `;
             list.appendChild(li);
           });
         }
         document.addEventListener("DOMContentLoaded", generateProjectList);
+
         function toggleRecentProjects(e) {
           e.preventDefault();
           const list = document.getElementById("project-list");
@@ -216,7 +188,7 @@
       </script>
     </section>
 
-    <!-- ========== Memories section ========== -->
+    <!-- ========== Memories Section ========== -->
     <section>
       <h2>Memories</h2>
 
@@ -238,7 +210,7 @@
       </div>
     </section>
 
-    <!-- ========== Modal Popup for images ========== -->
+    <!-- ========== Image Modal ========== -->
     <div id="img-modal" class="img-modal-overlay">
       <span class="img-modal-close">&times;</span>
       <img id="img-modal-content" class="img-modal-content" src="">
@@ -262,6 +234,5 @@
       };
     </script>
 
-    <div style="height:2em"></div>
   </body>
 </html>
