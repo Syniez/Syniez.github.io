@@ -52,9 +52,9 @@
     <section>
       <h2>Research</h2>
 
-      <p>* indicates equal contribution and &dagger; indicates corresponding authors</p>
+      <p>* indicates equal contribution, &dagger; indicates corresponding authors</p>
 
-      <ul id="paper-list" class="paper-list" data-show-recent="false"></ul>
+      <ul id="paper-list" class="paper-list" data-show-recent="true"></ul>
       [ <a href="#" onclick="toggleRecentPapers(event)">Show older papers</a> ]
 
       <script>
@@ -62,11 +62,11 @@
           {
             previewSrc: "assets/HUSH.png",
             title: "HUSH: Holistic Panoramic 3D Scene Understanding using Spherical Harmonics",
-            authors: ["Jongsung Lee","Harin Park","Byeong-Uk Lee","Kyungdon Joo"],
+            authors: ["Jongsung Lee","Harin Park","Byeong-Uk Lee","Kyungdon Joo†"],
             conference: "CVPR 2025",
             links: [
               { text: "Website", url:"https://vision3d-lab.github.io/hush/" },
-              { text:"Paper", url:"https://openaccess.thecvf.com/content/CVPR2025/papers/Lee_HUSH..." }
+              { text:"Paper", url:"https://openaccess.thecvf.com/content/CVPR2025/papers/Lee_HUSH_Holistic_Panoramic_3D_Scene_Understanding_using_Spherical_Harmonics_CVPR_2025_paper.pdf" }
             ],
             summary:"3D scene understanding using SH basis based queries",
             recent:true,
@@ -81,13 +81,13 @@
               "Kyongjun Kim*",
               "Seongoh Lee*",
               "Jung-Hee Kim",
-              "Seong-Gyun Jeong*",
+              "Seong-Gyun Jeong",
               "Kyungdon Joo†"
             ],
             conference:"ICCV 2023",
             links:[
               { text:"Website", url:"https://syniez.github.io/SlaBins/" },
-              { text:"Paper", url:"https://openaccess.thecvf.com/content/ICCV2023/papers/Lee..." }
+              { text:"Paper", url:"https://openaccess.thecvf.com/content/ICCV2023/papers/Lee_SlaBins_Fisheye_Depth_Estimation_using_Slanted_Bins_on_Road_Environments_ICCV_2023_paper.pdf" }
             ],
             summary:"New bin-based representation for slanted cameras on driving scenario",
             recent:true,
@@ -130,7 +130,7 @@
     <section>
       <h2>Projects</h2>
 
-      <ul id="project-list" class="project-list" data-show-recent="false"></ul>
+      <ul id="project-list" class="project-list" data-show-recent="true"></ul>
       [ <a href="#" onclick="toggleRecentProjects(event)">Show older projects</a> ]
 
       <script>
@@ -155,6 +155,20 @@
             summary: "Depth estimation using Multi-Cylinder Image (MCI) representation",
             Institute: "Funded by 42dot (2022 - 2023)",
             recent: true
+          },
+          {
+            previewSrc: "assets/Projects/8K_tracking.png",
+            title: "High-resolution object tracking",
+            summary: "Generating 2D boxes at each objects on the 8K video",
+            Institute: "Funded by IITP (2021 - 2022)",
+            recent: false
+          },
+          {
+            previewSrc: "assets/Projects/Stereo_panorama_video.png",
+            title: "Stereo panorama video depth estimation",
+            summary: "Stereo depth estimation for depth image based rendering",
+            Institute: "Funded by IITP (2020 - 2022)",
+            recent: false
           },
         ];
 
