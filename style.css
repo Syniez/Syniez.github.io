@@ -37,10 +37,6 @@ section {
   height: 4em;
 }
 
-.me {
-  font-weight: 700;
-}
-
 /* Profile Layout */
 .profile-section {
   display: flex;
