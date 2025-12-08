@@ -105,7 +105,16 @@
               <img class="paper-visual popup-img" src="${paper.previewSrc}" alt="${paper.title}">
               <div class="paper-textual">
                 <h3>${paper.title}</h3>
-                ${paper.authors.join(", ")}.<br>
+                ${
+                  paper.authors.map((author) => {
+                  // 정확히 "Jongsung Lee" 일치하면 강조
+                  if (author.trim() === "Jongsung Lee") {
+                    return `<strong class="me">${author}</strong>`;
+                    }
+                  return author;
+                  })
+                .join(", ")
+                }.<br>
                 <span class="paper-conf">${paper.conference}</span><br>
                 ${paper.links.map(l => `<a href="${l.url}" class="external-link" target="_blank" rel="noopener noreferrer">${l.text}</a>`).join(" / ")}
                 <div><em class="paper-summary">${paper.summary}</em></div>
